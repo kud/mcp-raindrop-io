@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeAll, beforeEach } from "vitest"
 
 vi.hoisted(() => {
-  process.env.RAINDROP_TOKEN = "test-token"
+  process.env.MCP_RAINDROPIO_TOKEN = "test-token"
 })
 
 import {
