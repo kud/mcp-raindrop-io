@@ -3,9 +3,9 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod"
 
-const RAINDROP_TOKEN = process.env.RAINDROP_TOKEN
+const RAINDROP_TOKEN = process.env.MCP_RAINDROPIO_TOKEN
 if (!RAINDROP_TOKEN) {
-  console.error("RAINDROP_TOKEN env var is required")
+  console.error("MCP_RAINDROPIO_TOKEN env var is required")
   process.exit(1)
 }
 

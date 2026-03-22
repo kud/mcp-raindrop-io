@@ -27,7 +27,7 @@
 
 ## 🌟 Features
 
-- **🔐 Simple Auth** — Single Bearer token via `RAINDROP_TOKEN` env var
+- **🔐 Simple Auth** — Single Bearer token via `MCP_RAINDROPIO_TOKEN` env var
 - **📚 22 Tools** — Full Raindrop.io API coverage
 - **⚡ Modern Stack** — TypeScript 5+, ES2023, Native Fetch API
 - **📦 MCP Protocol** — Native integration with Claude Desktop, Claude Code CLI
@@ -75,7 +75,7 @@ npm run build
       "command": "npx",
       "args": ["--yes", "@kud/mcp-raindrop-io@latest"],
       "env": {
-        "RAINDROP_TOKEN": "your-token-here"
+        "MCP_RAINDROPIO_TOKEN": "your-token-here"
       }
     }
   }
@@ -105,7 +105,7 @@ npm run build
 
 ```bash
 claude mcp add --transport stdio --scope user raindrop \
-  --env RAINDROP_TOKEN=your-token-here \
+  --env MCP_RAINDROPIO_TOKEN=your-token-here \
   -- npx --yes @kud/mcp-raindrop-io@latest
 ```
 
@@ -113,7 +113,7 @@ claude mcp add --transport stdio --scope user raindrop \
 
 ```bash
 claude mcp add --transport stdio --scope user raindrop \
-  --env RAINDROP_TOKEN=your-token-here \
+  --env MCP_RAINDROPIO_TOKEN=your-token-here \
   -- node $HOME/Projects/mcp-raindrop-io/dist/index.js
 ```
 
@@ -153,7 +153,7 @@ notepad %APPDATA%\Claude\claude_desktop_config.json
       "command": "npx",
       "args": ["--yes", "@kud/mcp-raindrop-io@latest"],
       "env": {
-        "RAINDROP_TOKEN": "your-token-here"
+        "MCP_RAINDROPIO_TOKEN": "your-token-here"
       }
     }
   }
@@ -169,7 +169,7 @@ notepad %APPDATA%\Claude\claude_desktop_config.json
       "command": "node",
       "args": ["/absolute/path/to/mcp-raindrop-io/dist/index.js"],
       "env": {
-        "RAINDROP_TOKEN": "your-token-here"
+        "MCP_RAINDROPIO_TOKEN": "your-token-here"
       }
     }
   }
@@ -198,7 +198,7 @@ Settings (Cmd+, / Ctrl+,) → Search "MCP" → Edit Config or open `~/.cursor/mc
       "command": "npx",
       "args": ["--yes", "@kud/mcp-raindrop-io@latest"],
       "env": {
-        "RAINDROP_TOKEN": "your-token-here"
+        "MCP_RAINDROPIO_TOKEN": "your-token-here"
       }
     }
   }
@@ -225,7 +225,7 @@ Settings → **AI Settings** → **Model Context Protocol** → Add Server:
       "command": "npx",
       "args": ["--yes", "@kud/mcp-raindrop-io@latest"],
       "env": {
-        "RAINDROP_TOKEN": "your-token-here"
+        "MCP_RAINDROPIO_TOKEN": "your-token-here"
       }
     }
   }
@@ -252,7 +252,7 @@ Settings → Search "Cline: MCP Settings" → Edit in settings.json:
       "command": "npx",
       "args": ["--yes", "@kud/mcp-raindrop-io@latest"],
       "env": {
-        "RAINDROP_TOKEN": "your-token-here"
+        "MCP_RAINDROPIO_TOKEN": "your-token-here"
       }
     }
   }
@@ -401,7 +401,7 @@ npm run inspect:dev
 ### Testing with MCP Inspector
 
 ```bash
-export RAINDROP_TOKEN=your-token-here
+export MCP_RAINDROPIO_TOKEN=your-token-here
 npm run inspect:dev
 ```
 
@@ -418,7 +418,7 @@ Opens `http://localhost:5173` — test all 22 tools interactively!
 3. Give it a name (e.g. "MCP Server")
 4. Click the app → copy the **Test token**
 
-That's it — paste it into `RAINDROP_TOKEN`.
+That's it — paste it into `MCP_RAINDROPIO_TOKEN`.
 
 > ⚠️ Keep your token private. It grants full read/write access to your Raindrop.io account.
 
@@ -428,7 +428,7 @@ That's it — paste it into `RAINDROP_TOKEN`.
 
 ### Server Not Showing in Claude
 
-1. ✅ Verify `RAINDROP_TOKEN` is set and non-empty
+1. ✅ Verify `MCP_RAINDROPIO_TOKEN` is set and non-empty
 2. ✅ Run `npm install && npm run build`
 3. ✅ Check the path in your config is absolute
 4. ✅ Restart Claude Desktop completely (Cmd+Q / Alt+F4)
@@ -460,7 +460,7 @@ claude mcp get raindrop
 
 ## 🔒 Security Best Practices
 
-- ✅ Always use `RAINDROP_TOKEN` env var — never hardcode tokens
+- ✅ Always use `MCP_RAINDROPIO_TOKEN` env var — never hardcode tokens
 - ✅ Never commit your token to version control
 - ✅ Protect your `claude_desktop_config.json`
 - ✅ Rotate your token if you suspect it's been exposed (via Raindrop.io integrations settings)
