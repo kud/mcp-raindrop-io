@@ -1,6 +1,8 @@
 {
-  "mcp-raindrop-io": {
-    "command": "npx",
-    "args": ["tsx", "src/index.ts"]
+  "mcpServers": {
+    "mcp-raindrop-io": {
+      "command": "npx",
+      "args": ["tsx", "src/index.ts"]
+    }
   }
 }
