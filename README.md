@@ -1,38 +1,39 @@
-# Raindrop.io MCP Server
-
-```
-██████╗  █████╗ ██╗███╗   ██╗██████╗ ██████╗  ██████╗ ██████╗    ██╗ ██████╗
-██╔══██╗██╔══██╗██║████╗  ██║██╔══██╗██╔══██╗██╔═══██╗██╔══██╗  ██╔╝██╔═══██╗
-██████╔╝███████║██║██╔██╗ ██║██║  ██║██████╔╝██║   ██║██████╔╝ ██╔╝ ██║   ██║
-██╔══██╗██╔══██║██║██║╚██╗██║██║  ██║██╔══██╗██║   ██║██╔═══╝ ██╔╝  ██║   ██║
-██║  ██║██║  ██║██║██║ ╚████║██████╔╝██║  ██║╚██████╔╝██║    ██╔╝   ╚██████╔╝
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝   ╚═╝    ╚═════╝
-```
-
 <div align="center">
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-20+-green?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![MCP](https://img.shields.io/badge/MCP-1.0-purple?logo=anthropic)](https://modelcontextprotocol.io/)
-[![npm](https://img.shields.io/npm/v/@kud/mcp-raindrop-io?color=red&logo=npm)](https://www.npmjs.com/package/@kud/mcp-raindrop-io)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![npm](https://img.shields.io/npm/v/@kud/mcp-raindrop-io?style=flat-square&color=CB3837)
+![MIT](https://img.shields.io/badge/licence-MIT-22C55E?style=flat-square)
+
+**MCP server for Raindrop.io — bookmarks, collections, tags, highlights and more.**
+
+<a href="https://kud.io/projects/mcp-raindrop-io">Website</a> · <a href="https://kud.io/projects/mcp-raindrop-io/docs">Documentation</a>
 
 </div>
 
-> A Raindrop.io MCP server with 23 tools for managing bookmarks, collections, tags, and highlights from any MCP client.
+## Features
+
+- **Bookmark management** — create, read, update, and delete individual bookmarks with titles, notes, tags, and excerpts.
+- **Bulk operations** — move, tag, or delete multiple bookmarks in a single call.
+- **Collection organisation** — list, create, update, and delete root and nested collections.
+- **Tag control** — list, rename, merge, and delete tags across your entire library or scoped to a collection.
+- **Highlights** — fetch, create, update, and delete inline highlights with colour and notes.
+- **Library audit** — surface broken links, duplicates, and untagged bookmarks in one tool call.
 
 ## Install
 
-```bash
+```sh
 npx --yes @kud/mcp-raindrop-io@latest
 ```
 
-Add it to your MCP client with a Raindrop.io token in `MCP_RAINDROPIO_TOKEN`:
+## Usage
+
+Add the server to your MCP client config and pass a Raindrop.io API token via `MCP_RAINDROPIO_TOKEN`:
 
 ```json
 {
   "mcpServers": {
-    "Raindrop": {
+    "raindrop-io": {
       "command": "npx",
       "args": ["--yes", "@kud/mcp-raindrop-io@latest"],
       "env": {
@@ -43,20 +44,39 @@ Add it to your MCP client with a Raindrop.io token in `MCP_RAINDROPIO_TOKEN`:
 }
 ```
 
-Per-client setup (Claude Code CLI, Cursor, Windsurf, VSCode) and how to get a token are in the [documentation](https://kud.io/projects/mcp-raindrop-io/docs).
+| Tool                    | Description                                                       |
+| ----------------------- | ----------------------------------------------------------------- |
+| `search_raindrops`      | Search or list bookmarks with advanced filters                    |
+| `get_raindrop`          | Get a single bookmark by ID                                       |
+| `create_raindrop`       | Create a new bookmark                                             |
+| `update_raindrop`       | Update an existing bookmark                                       |
+| `delete_raindrop`       | Delete a bookmark (moves to trash)                                |
+| `create_raindrops`      | Create multiple bookmarks in bulk                                 |
+| `bulk_raindrops`        | Bulk update, move, or delete bookmarks in a collection            |
+| `get_collections`       | List all root collections                                         |
+| `get_child_collections` | List all child (nested) collections                               |
+| `get_collection`        | Get a single collection by ID                                     |
+| `create_collection`     | Create a new collection                                           |
+| `update_collection`     | Update a collection                                               |
+| `delete_collection`     | Delete a collection and all its bookmarks                         |
+| `cleanup_collections`   | Remove all empty collections                                      |
+| `get_tags`              | List all tags, optionally scoped to a collection                  |
+| `manage_tags`           | Rename, merge, or delete tags                                     |
+| `get_highlights`        | Get highlights — all, by collection, or by bookmark               |
+| `manage_highlight`      | Create, update, or delete a highlight                             |
+| `get_user`              | Get authenticated user info and stats                             |
+| `parse_url`             | Extract metadata from any URL before saving                       |
+| `check_urls_exist`      | Check if URLs are already saved as bookmarks                      |
+| `library_audit`         | Scan library for broken links, duplicates, and untagged bookmarks |
+| `empty_trash`           | Permanently delete all bookmarks in trash                         |
 
 ## Development
 
-```bash
+```sh
 git clone https://github.com/kud/mcp-raindrop-io.git
 cd mcp-raindrop-io
 npm install
-npm run build      # compile TypeScript
-npm run dev        # run directly with tsx
-npm test           # run the test suite
-npm run inspect:dev # interactive MCP inspector
+npm run dev
 ```
 
----
-
-📚 **Full documentation → https://kud.io/projects/mcp-raindrop-io/docs**
+📚 **Full documentation → [mcp-raindrop-io/docs](https://kud.io/projects/mcp-raindrop-io/docs)**
