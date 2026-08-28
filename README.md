@@ -1,3 +1,33 @@
+> [!IMPORTANT]
+> **Archived — use Raindrop's official MCP server instead.**
+>
+> Raindrop now ships one of its own, and it works well: the coverage is there, and it
+> does this job better than a third-party shim can. It speaks OAuth 2.1, so there is no
+> token to create, store, or keep alive on every machine, and nothing is fetched or
+> spawned locally.
+>
+> ```json
+> {
+>   "mcpServers": {
+>     "raindrop": {
+>       "type": "http",
+>       "url": "https://api.raindrop.io/rest/v2/ai/mcp"
+>     }
+>   }
+> }
+> ```
+>
+> The [`raindrop-io` plugin](https://github.com/kud/claude-plugins/tree/main/plugins/raindrop-io)
+> has already been repointed at it, and its `bookmark-search`, `bookmark-save` and
+> `bookmark-organise` skills now run against the official tools. Installing that plugin
+> is the easiest way to pick this up.
+>
+> Coverage is close to level: 22 tools there against 23 here, and only `parse_url` and
+> `empty_trash` have no counterpart. Some of it is an upgrade — duplicate and broken-link
+> detection needed a bespoke `library_audit` tool here, and are ordinary query filters there.
+>
+> Published versions stay on npm and keep working. Nothing is being unpublished.
+
 <div align="center">
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
